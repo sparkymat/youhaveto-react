@@ -10,11 +10,13 @@ import (
 )
 
 func main() {
-	r := resty.Router{}
+	r := resty.NewRouter()
 	r.Resource([]string{"users"}, controller.User{}).Only().
 		Collection("login", []shttp.Method{shttp.Post}).
 		Collection("logout", []shttp.Method{shttp.Post}).
 		Collection("register", []shttp.Method{shttp.Post})
+
+	r.MuxRouter().PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 
 	r.PrintRoutes(os.Stdout)
 	r.HandleRoot()
