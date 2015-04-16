@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>You have to</title>
+    <title>YouHaveTo</title>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/react.js"></script>
+
+    <!-- react components -->
+    <script type="text/javascript" src="/components/yht_app.js"></script>
   </head>
   <body>
+    <div id="main-container"></div>
+    <script>
+      React.render(
+        React.createElement(YhtApp, null),
+        document.getElementById('main-container')
+      );
+    </script>
   </body>
 </html>
