@@ -19,9 +19,43 @@ var MainContainer = (function (_React$Component) {
   _inherits(MainContainer, _React$Component);
 
   _createClass(MainContainer, [{
+    key: 'loginClicked',
+    value: function loginClicked() {
+      window.yht.broadcast('loginClicked');
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return React.createElement('div', { 'class': 'main-container' });
+      return React.createElement(
+        'div',
+        { className: 'main-container' },
+        React.createElement(
+          'nav',
+          null,
+          React.createElement(
+            'div',
+            { className: 'nav-wrapper indigo white-text' },
+            React.createElement(
+              'a',
+              { href: '#', className: 'brand-logo' },
+              'YouHaveTo'
+            ),
+            React.createElement(
+              'ul',
+              { id: 'main-menu', className: 'right hide-on-med-and-down' },
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  'a',
+                  { href: '#!', onClick: this.loginClicked.bind(this) },
+                  'Login'
+                )
+              )
+            )
+          )
+        )
+      );
     }
   }]);
 

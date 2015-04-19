@@ -23,7 +23,7 @@ var YhtApp = (function (_React$Component) {
     value: function render() {
       return React.createElement(
         'div',
-        { 'class': 'yht-app row' },
+        { className: 'yht-app row' },
         React.createElement(MainContainer, { className: 'col s12 m12 l12' }),
         React.createElement(LoginPopup, null)
       );

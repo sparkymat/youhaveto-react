@@ -14,11 +14,18 @@ var LoginPopup = (function (_React$Component) {
 
     _get(Object.getPrototypeOf(LoginPopup.prototype), 'constructor', this).call(this, props);
     this.state = {};
+
+    window.yht.subscribe('loginClicked', this);
   }
 
   _inherits(LoginPopup, _React$Component);
 
   _createClass(LoginPopup, [{
+    key: 'onLoginClicked',
+    value: function onLoginClicked() {
+      $('.login-popup').openModal();
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -26,16 +33,33 @@ var LoginPopup = (function (_React$Component) {
         { className: 'login-popup modal' },
         React.createElement(
           'div',
-          { className: 'modal-content' },
+          { className: 'modal-content row' },
           React.createElement(
             'h4',
-            null,
-            'Modal header'
+            { className: 's12 m12 l12 center-align' },
+            'Login'
           ),
           React.createElement(
-            'p',
-            null,
-            'This was a triumph!'
+            'div',
+            { className: 'input-field col s12' },
+            React.createElement('i', { className: 'mdi-content-mail prefix' }),
+            React.createElement('input', { id: 'email', type: 'email', className: 'validate' }),
+            React.createElement(
+              'label',
+              { 'for': 'email' },
+              'E-mail'
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'input-field col s12' },
+            React.createElement('i', { className: 'mdi-action-lock-outline prefix' }),
+            React.createElement('input', { id: 'password', type: 'password', className: 'validate' }),
+            React.createElement(
+              'label',
+              { 'for': 'password' },
+              'Password'
+            )
           )
         ),
         React.createElement(
@@ -43,8 +67,8 @@ var LoginPopup = (function (_React$Component) {
           { className: 'modal-footer' },
           React.createElement(
             'a',
-            { href: '#!', className: 'modal-action modal-close waves-effect waves-green btn-flat' },
-            'Agree'
+            { href: '#!', className: 'modal-action modal-close indigo waves-effect waves-indigo btn-flat white-text' },
+            'Login'
           )
         )
       );
