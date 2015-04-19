@@ -1,7 +1,7 @@
-SRC = $(wildcard *.es6)
-LIB = $(SRC:%.es6=%.js)
+SRC = $(wildcard src/*.es6)
+LIB = $(SRC:src/%.es6=build/%.js)
 
 all: $(LIB)
 
-%.js: %.es6
+build/%.js: src/%.es6
 	babel $< -o $@

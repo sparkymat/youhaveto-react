@@ -6,8 +6,9 @@ class YhtApp extends React.Component {
 
   render() {
     return (
-      <div class='yht-app'>
-        <h3>Hello</h3>
+      <div class='yht-app row'>
+        <MainContainer className='col s12 m12 l12'></MainContainer>
+        <LoginPopup></LoginPopup>
       </div>
     )
   }

@@ -8,30 +8,48 @@ var _get = function get(object, property, receiver) { var desc = Object.getOwnPr
 
 var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 
-var YhtApp = (function (_React$Component) {
-  function YhtApp(props) {
-    _classCallCheck(this, YhtApp);
+var LoginPopup = (function (_React$Component) {
+  function LoginPopup(props) {
+    _classCallCheck(this, LoginPopup);
 
-    _get(Object.getPrototypeOf(YhtApp.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(LoginPopup.prototype), 'constructor', this).call(this, props);
     this.state = {};
   }
 
-  _inherits(YhtApp, _React$Component);
+  _inherits(LoginPopup, _React$Component);
 
-  _createClass(YhtApp, [{
+  _createClass(LoginPopup, [{
     key: 'render',
     value: function render() {
       return React.createElement(
         'div',
-        { 'class': 'yht-app' },
+        { className: 'login-popup modal' },
         React.createElement(
-          'h3',
-          null,
-          'Hello'
+          'div',
+          { className: 'modal-content' },
+          React.createElement(
+            'h4',
+            null,
+            'Modal header'
+          ),
+          React.createElement(
+            'p',
+            null,
+            'This was a triumph!'
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'modal-footer' },
+          React.createElement(
+            'a',
+            { href: '#!', className: 'modal-action modal-close waves-effect waves-green btn-flat' },
+            'Agree'
+          )
         )
       );
     }
   }]);
 
-  return YhtApp;
+  return LoginPopup;
 })(React.Component);
