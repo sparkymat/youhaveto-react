@@ -13,19 +13,35 @@ var YhtApp = (function (_React$Component) {
     _classCallCheck(this, YhtApp);
 
     _get(Object.getPrototypeOf(YhtApp.prototype), 'constructor', this).call(this, props);
-    this.state = {};
+
+    this.store = new YhtStore();
+    this.state = this.dataFromStore();
+
+    window.yht.subscribe('appStateChanged', this);
   }
 
   _inherits(YhtApp, _React$Component);
 
   _createClass(YhtApp, [{
+    key: 'dataFromStore',
+    value: function dataFromStore() {
+      return {
+        loginMode: this.store.loginMode
+      };
+    }
+  }, {
+    key: 'onAppStateChanged',
+    value: function onAppStateChanged() {
+      this.setState(this.dataFromStore());
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
         'div',
         { className: 'yht-app row' },
-        React.createElement(MainContainer, { className: 'col s12 m12 l12' }),
-        React.createElement(LoginPopup, null)
+        React.createElement(MainContainer, { className: 'col s12 m12 l12',
+          loginMode: this.state.loginMode })
       );
     }
   }]);
