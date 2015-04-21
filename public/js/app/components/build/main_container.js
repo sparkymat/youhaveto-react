@@ -21,7 +21,7 @@ var MainContainer = (function (_React$Component) {
   _createClass(MainContainer, [{
     key: 'loginClicked',
     value: function loginClicked() {
-      window.yht.broadcast('loginClicked');
+      window.yht.broadcast('loginRequested');
     }
   }, {
     key: 'render',

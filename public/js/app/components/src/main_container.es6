@@ -5,7 +5,7 @@ class MainContainer extends React.Component {
   }
   
   loginClicked() {
-    window.yht.broadcast("loginClicked");
+    window.yht.broadcast("loginRequested");
   }
 
   render() {
