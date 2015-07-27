@@ -16,17 +16,27 @@ var YouHaveToApp = (function (_React$Component) {
 
     _get(Object.getPrototypeOf(YouHaveToApp.prototype), 'constructor', this).call(this, props);
 
-    this.setState({});
+    this.state = {
+      currentUser: null
+    };
   }
 
   _createClass(YouHaveToApp, [{
     key: 'render',
     value: function render() {
-      return React.createElement(
-        'div',
-        { className: 'fire row' },
-        React.createElement(MainContainer, { className: 'col s12 m12 l12' })
-      );
+      if (this.state.currentUser) {
+        return React.createElement(
+          'div',
+          { className: 'fire row' },
+          React.createElement(MainContainer, { className: 'col s12 m12 l12' })
+        );
+      } else {
+        return React.createElement(
+          'div',
+          { className: 'fire row' },
+          React.createElement(LoginContainer, null)
+        );
+      }
     }
   }]);
 
