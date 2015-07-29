@@ -22,6 +22,7 @@ func main() {
 
 	r.HandleFunc("/", func(response http.ResponseWriter, request *http.Request) {
 		app := reactor.New("YouHaveToApp")
+		app.DisableDefaultJS()
 		app.MapJavascriptFolder("public/js/core", "js/core")
 		app.MapJavascriptFolder("public/js/framework", "js/framework")
 		app.MapJavascriptFolder("public/js/app/models", "js/app/models")

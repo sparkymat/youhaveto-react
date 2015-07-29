@@ -10,14 +10,14 @@ class YouHaveToApp extends React.Component {
   render() {
     if(this.state.currentUser) {
       return (
-        <div className='fire row'>
-          <MainContainer className='col s12 m12 l12'> 
+        <div>
+          <MainContainer> 
           </MainContainer>
         </div>
       )
     } else {
       return (
-        <div className='fire row'>
+        <div className='container-fluid'>
           <LoginContainer>
           </LoginContainer>
         </div>

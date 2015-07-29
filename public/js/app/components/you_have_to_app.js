@@ -27,13 +27,13 @@ var YouHaveToApp = (function (_React$Component) {
       if (this.state.currentUser) {
         return React.createElement(
           'div',
-          { className: 'fire row' },
-          React.createElement(MainContainer, { className: 'col s12 m12 l12' })
+          null,
+          React.createElement(MainContainer, null)
         );
       } else {
         return React.createElement(
           'div',
-          { className: 'fire row' },
+          { className: 'container-fluid' },
           React.createElement(LoginContainer, null)
         );
       }
