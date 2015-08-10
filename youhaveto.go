@@ -23,11 +23,7 @@ func main() {
 	r.HandleFunc("/", func(response http.ResponseWriter, request *http.Request) {
 		app := reactor.New("YouHaveToApp")
 		app.DisableDefaultJS()
-		app.MapJavascriptFolder("public/js/core", "js/core")
-		app.MapJavascriptFolder("public/js/framework", "js/framework")
-		app.MapJavascriptFolder("public/js/app/models", "js/app/models")
-		app.MapJavascriptFolder("public/js/app/stores", "js/app/stores")
-		app.MapJavascriptFolder("public/js/app/components", "js/app/components")
+		app.MapJavascriptFolder("public/js/app", "js/app")
 		app.MapCssFolder("public/css", "css")
 
 		io.WriteString(response, app.Html().String())
