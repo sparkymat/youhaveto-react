@@ -1,6 +1,6 @@
 import React from "react";
 import mui from "material-ui";
-import swal from "sweetalert.swal";
+import Loader from "./loader";
 
 let Dialog = mui.Dialog;
 let TextField = mui.TextField;
@@ -14,7 +14,7 @@ export default class LoginContainer extends React.Component {
       email: null,
       password: null,
       name: null,
-      mode: "login"
+      loading: false
     };
   }
 
@@ -36,24 +36,29 @@ export default class LoginContainer extends React.Component {
   }
 
   loginClicked(event) {
-    swal("Error", "No backend found", "error");
+    this.setState({
+      loading: true
+    });
   }
 
   render() {
     let actions = [
-      { text: 'Login', onTouchTap: this.loginClicked.bind(this),  ref: 'submit' }
+      { text: 'Login', onClick: this.loginClicked.bind(this),  ref: 'submit' }
     ];
 
     return (
-      <Dialog
-        ref="logindialog"
-        title="Login"
-        actions={actions}
-        actionFocus="submit"
-        modal={true} >
-        <TextField value={this.state.email} onChange={this.handleValueChange.bind(this,"email")} hintText="e.g. adam@example.com" floatingLabelText="E-mail" style={{width: "100%"}} />
-        <TextField value={this.state.password} onChange={this.handleValueChange.bind(this,"password")} floatingLabelText="Password" type="password" style={{width: "100%"}} />
-      </Dialog>
+      <div style={{position: "absolute", left: 0, top: 0, right: 0, bottom: 0}}>
+        <Loader isLoading={this.state.loading} />
+        <Dialog
+          ref="logindialog"
+          title="Login"
+          actions={actions}
+          actionFocus="submit"
+          modal={true} >
+          <TextField value={this.state.email} onChange={this.handleValueChange.bind(this,"email")} hintText="e.g. adam@example.com" floatingLabelText="E-mail" style={{width: "100%"}} />
+          <TextField value={this.state.password} onChange={this.handleValueChange.bind(this,"password")} floatingLabelText="Password" type="password" style={{width: "100%"}} />
+        </Dialog>
+      </div>
     )
   }
 }
