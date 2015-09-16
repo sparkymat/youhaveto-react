@@ -4,7 +4,7 @@ module.exports = {
     app: './app.js'
   },
   output: {
-    path: './public/js/app/',
+    path: './public/js/',
     filename: 'application.js',
   },
   module: {
